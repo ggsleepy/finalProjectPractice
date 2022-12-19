@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.badadventuregame.HelloController">
    <children>
-      <BorderPane layoutX="-2.0" prefHeight="406.0" prefWidth="610.0">
+      <BorderPane layoutX="-2.0" prefHeight="407.0" prefWidth="610.0">
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
          </left>
@@ -35,10 +35,10 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" text="Search for gold" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" text="Fight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" text="Run away" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" text="Sleep" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="searchForGoldButton" mnemonicParsing="false" onAction="#searchForGoldButtonClicked" text="Search for gold" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="fightButton" mnemonicParsing="false" onAction="#fightButtonClicked" text="Fight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="runAwayButton" mnemonicParsing="false" onAction="#runAwayButtonClicked" text="Run away" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="sleepButton" mnemonicParsing="false" onAction="#sleepButtonClicked" text="Sleep" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children></HBox>
@@ -58,10 +58,10 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="upButton" mnemonicParsing="false" onAction="#buttonClicked" text="UP" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Button fx:id="leftButton" mnemonicParsing="false" onAction="#buttonClicked" text="LEFT" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Button fx:id="rightButton" alignment="CENTER" mnemonicParsing="false" onAction="#buttonClicked" text="RIGHT" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Button fx:id="downButton" mnemonicParsing="false" onAction="#buttonClicked" text="DOWN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="upButton" mnemonicParsing="false" onAction="#upButtonClicked" text="UP" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Button fx:id="leftButton" mnemonicParsing="false" onAction="#leftButtonClicked" text="LEFT" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button fx:id="rightButton" alignment="CENTER" mnemonicParsing="false" onAction="#rightButtonClicked" text="RIGHT" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button fx:id="downButton" mnemonicParsing="false" onAction="#downButtonClicked" text="DOWN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>

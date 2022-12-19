@@ -6,39 +6,14 @@ public class Room {
     private int gold;
     private boolean isRoomBlocked;
 
-    private boolean monsterInTheRoomClass;
+    private Monster monster;
 
-    public Room() {
-        this.gold =  (int) (Math.random()*100)+1;;
-        this.isRoomBlocked = false;
-        this.monsterInTheRoomClass = false;
-
-        int blockedNumber;
-        Random randomNumber = new Random();
-         blockedNumber = randomNumber.nextInt(10)+1;
-        if(blockedNumber < 4){
-            isRoomBlocked = true;
-            monsterInTheRoomClass = false;
-            gold=0;
+    public Room(boolean isRoomBlocked) {
+        this.isRoomBlocked = isRoomBlocked;
+        if(!this.isRoomBlocked) {
+            this.gold = (int) (Math.random() * 100) + 1;
         }
-        else{
-            isRoomBlocked=false;
-            blockedNumber=randomNumber.nextInt(2)+1;
-
-            if(blockedNumber < 2){
-                //based on the lecture I am not sure if I should get class for my monster or..
-                //Make boolean attribute
-                monster.getClass();
-                monsterInTheRoomClass = true;
-            }else {
-                monsterInTheRoomClass = false;
-            }
-
-                blockedNumber = randomNumber.nextInt(10);
-                gold=blockedNumber;
-
-            }
-        }
+    }
 
 
     public int getGold() {
@@ -57,13 +32,11 @@ public class Room {
         this.isRoomBlocked = blocked;
     }
 
-    //Do I need to make a new instance of my player class to reference INT attribute?
+    public boolean hasMonster() {
+        return this.monster != null;
+    }
 
-
-    NonPlayerCharacterMonsterClass monster = new NonPlayerCharacterMonsterClass((int) (Math.random()* 6)+1, (int) ((Math.random()* 6)+1)*2,
-            (int) ((Math.random()* 6)+1)*2,(int) ((Math.random()* 6)+1)*3);
-
-    public int searchTheRoom (PlayerCharacterClass player){
+    public int searchTheRoom (Player player){
         int diceRoll = (int)(Math.random()*20)+1;
         if (diceRoll < player.getIntelligence()){
             int goldFromSearch = this.gold;
@@ -75,14 +48,24 @@ public class Room {
         }
 
 
-    public int fight(PlayerCharacterClass player, NonPlayerCharacterMonsterClass monster){
-        int diceRoll = (int)(Math.random()*20)+1;
-        if (diceRoll >= monster.getDexterity()){
-            
-        }
-        return 0;
 
+
+    public Monster enter(Player player){
+        //add monster 1/2 chance if there is no npc you can search room for gold
+        this.monster = null;
+        if (Math.random() > 0.5){
+            this.monster = new Monster();
+            return this.monster;
+        }
+        return this.monster;
+    }
+
+    public Monster getMonster(){
+        return monster;
     }
 
 
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+    }
 }
